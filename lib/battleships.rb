@@ -7,7 +7,7 @@ class BattleShips < Sinatra::Base
     erb :index
   end
 
-  get '/game' do
+  post '/game' do
     'Thanks for submitting!'
   end
 
