@@ -12,7 +12,7 @@ I want to start a new game
     Then I should see "Thanks for submitting!"
 
   Scenario: player doesn't enter name
-    Given I'm on the \game\new page
+    Given I'm on the new game page
+    When I enter no "value"
     And I press "Submit"
-    When I fill in "value" with ""
-    Then I should see "Please enter your name!"
+    Then I see "Please enter your name!"

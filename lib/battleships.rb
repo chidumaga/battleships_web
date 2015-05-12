@@ -8,11 +8,13 @@ class BattleShips < Sinatra::Base
   end
 
   post '/game' do
-    'Thanks for submitting!'
+    @value = params[:value]
+    puts @value
+    erb :game
   end
 
   get '/game/new' do
-    erb :game
+    erb :game_new
   end
 
   # start the server if ruby file executed directly
