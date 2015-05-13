@@ -1,9 +1,11 @@
-
+<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
 
 <div>
-  <span>What's your name?</span>
+  <p>What's your name?</p>
+  </br>
   <form action="/game" method="post">
     <input type="text" name="value">
+    </br>
     <button>Submit</button>
   </form>
 </div>
