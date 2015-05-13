@@ -1,7 +1,11 @@
 <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
 
-<% if @value.length > 0 %>
+<% if @value %>
 <p>Thanks for submitting!</p>
+<p><%= @value.name %></p>
 <% else %>
 <p>Please enter your name!</p>
 <% end %>
+
+<a href="/create_ship"> Place your ships </a>
+

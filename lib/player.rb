@@ -2,12 +2,13 @@ require_relative 'board'
 require_relative 'ship'
 
 class Player
-  attr_reader :board, :hits, :misses
+  attr_reader :board, :hits, :misses, :name
 
-  def initialize
+  def initialize name
     @board = Board.new
     @hits = []
     @misses = []
+    @name = name
   end
 
   def lost?
