@@ -30,7 +30,31 @@ end
 
 Then(/^I see "([^"]*)"$/) do |text1|
   expect(page).to have_content text1
+end
 
+Given(/^I'm on the game page$/) do
+  visit('/')
+  click_link("New Game")
+  fill_in("value", :with => "rocco")
+  click_button("Submit")
+end
+
+When(/^I click on "([^"]*)"$/) do |arg1|
+  click_link(arg1)
+
+end
+
+When(/^I fill my "([^"]*)" with "([^"]*)"$/) do |field, value|
+  fill_in(field, :with => value)
+end
+
+When(/^I click on the "([^"]*)" button$/) do |arg1|
+  click_button(arg1)
+
+end
+
+Then(/^my ship is placed on the board$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 

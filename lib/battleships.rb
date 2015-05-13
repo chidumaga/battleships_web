@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/player'
 require './lib/ship'
 require './lib/board'
+require 'byebug'
 
 class BattleShips < Sinatra::Base
   set :views, Proc.new { File.join(root, "..", "views") }
@@ -14,8 +15,13 @@ class BattleShips < Sinatra::Base
     erb :index
   end
 
+  get '/game' do
+    erb :play
+  end
+
   post '/game' do
-    @@player = Player.new params[:value]
+    @value = params[:value]
+    @@player = Player.new @value
     erb :game
   end
 
@@ -23,13 +29,19 @@ class BattleShips < Sinatra::Base
     erb :create_ship
   end
 
-   post '/create_ship' do
+  post '/create_ship' do
     @@player.place Ship, params[:position], params[:orientation]
     erb :create_ship
   end
 
   get '/game/new' do
     erb :game_new
+  end
+
+  post '/shoot' do
+    @@player.receive_hit params[:position]
+    @word = @@player.lost?
+    erb :play
   end
 
   # start the server if ruby file executed directly

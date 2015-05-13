@@ -11,8 +11,17 @@ I want to start a new game
     When I press "Submit"
     Then I should see "Thanks for submitting!"
 
-  Scenario: player doesn't enter name
+  Scenario: Player doesn't enter name
     Given I'm on the new game page
     When I enter no "value"
     And I press "Submit"
     Then I see "Please enter your name!"
+
+  Scenario: Player places ships
+    Given I'm on the game page
+    When I click on "Place your ships"
+    And I fill my "position" with "F1"
+    And I fill my "orientation" with "vertical"
+    And I click on the "Submit" button
+    Then my ship is placed on the board
+
