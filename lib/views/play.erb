@@ -1,0 +1,13 @@
+<h2>Fire at Ships</h2>
+<form action="/play" method="post">
+<input type="text" name="position">
+<button>Submit</button>
+</form>
+
+<% if @damage == :hit %>
+<p>You've <%= @damage %> your opponent's ship</p>
+<% elsif @damage == :miss %>
+<p>You've <%= @damage %>ed your opponent's ship</p>
+<% else %>
+<p></p>
+<% end %>

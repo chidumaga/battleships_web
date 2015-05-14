@@ -325,5 +325,3 @@ Submarine
 2.1.5 :024 > player.lost?
  => true 
 ```
-
-end

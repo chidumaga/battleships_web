@@ -1,0 +1,39 @@
+<div>
+<h4> Place Your Ships Player 1</h4>
+</div>
+
+<form action="/game/new" method="post">
+<input type="text" name="p1_position">
+<input type="radio" id="p1_rb-horiz" name="p1_orientation" value="horizontal">Horizontal
+<input type="radio" id="p1_rb-vert" name="p1_orientation" value="vertical">Vertical
+<input type="text" name="p1_size">
+<button>Player 1 Submit</button>
+</form>
+
+<div>
+Ships placed: <%=@count %>/5
+</div>
+
+</br>
+
+<div>
+<h4> Place Your Ships Player 2</h4>
+</div>
+
+<form action="/game/new" method="post">
+<input type="text" name="p2_position">
+<input type="radio" id="p2_rb-horiz" name="orientation" value="horizontal">Horizontal
+<input type="radio" id="p2_rb-vert" name="orientation" value="vertical">Vertical
+<input type="text" name="p2_size">
+<button>Player 2 Submit</button>
+</form>
+
+<div>
+Ships placed: <%=@count %>/5
+</div>
+
+</br>
+</br>
+</br>
+
+<a href="/play">Start the Game!</a>
