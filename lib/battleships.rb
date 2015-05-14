@@ -7,13 +7,14 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/game/new' do
-    @@player = Player.new
+    @@player1 = Player.new
+    @@player2 = Player.new
     erb :new_game
   end
 
   post '/game/new' do
     @count = 0
-    @@player.place Ship, params[:p1_position], params[:p1_orientation]
+    @@player1.place Ship, params[:p1_position], params[:p1_orientation]
     @count += 1
     erb :new_game
   end
@@ -23,8 +24,18 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   post '/play' do
-    @damage = @@player.receive_hit params[:position]
+    @damage = @@player1.receive_hit params[:position]
+    redirect to '/winner' if @@player1.lost? || @@player2.lost?
     erb :play
+  end
+
+  get '/winner' do
+    if @@player1.lost?
+      @winner = "Player 2"
+    else
+      @winner = "Player 1"
+    end
+    erb :winner
   end
 
   # start the server if ruby file executed directly
